@@ -1,8 +1,8 @@
 import { Response, Request } from 'express';
 import { container } from 'tsyringe';
 import ItemService from '../services/itemService';
-import { ItemRequestGetAllInterface, IItemInterface } from '../interfaces/item';
-import { getAllItemSchema, postItemSchema } from '../utils/item/validators';
+import { ItemRequestGetAllInterface } from '../interfaces/item';
+import { getAllItemSchema } from '../utils/item/validators';
 
 export const create = async (req: Request, res: Response): Promise<Response> => {
     const itemData = req.body;

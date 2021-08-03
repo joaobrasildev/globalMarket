@@ -1,5 +1,5 @@
 import express from 'express';
-import itemRoutes from '../src/routes/item.routes';
+import routes from './routes/routes';
 import bodyParser from 'body-parser';
 
 class Application {
@@ -10,7 +10,7 @@ class Application {
         this.setupRoutes();
     }
     private setupRoutes() {
-        this.app.use(itemRoutes);
+        this.app.use(routes);
     }
 }
 

@@ -19,94 +19,143 @@ servers:
               default: api/v1
 tags:
     # - name: Items
+    - name: Accounts
 paths:
-    # /item:
-    #   post:
-    #     tags:
-    #       - Items
-    #     description: Item create
-    #     operationId: postItem
-    #     requestBody:
-    #       required: true
-    #       content:
-    #         application/json:
-    #           schema:
-    #             type: object
-    #             properties:
-    #               description:
-    #                 type: string
-    #               weight:
-    #                 type: number
-    #               levelRequired:
-    #                 type: number
-    #               vocation:
-    #                 type: number
-    #     responses:
-    #       201:
-    #         description: Created
-    #         content:
-    #           application/json:
-    #             schema:
-    #               type: object
-    #               properties:
-    #                 id:
-    #                   type: number
-    #       500:
-    #         description: Internal Server Error
-    #         content:
-    #           application/json:
-    #             schema:
-    #                 type: object
-    #                 properties:
-    #                   code:
-    #                     type: integer
-    #                   message:
-    #                     type: string
-    #                   error:
-    #                     type: string
-    #   get:
-    #     tags:
-    #       - Items
-    #     description: Item getAll
-    #     operationId: getItems
-    #     parameters:
-    #       - in: query
-    #         name: vocation
-    #         required: false
-    #         schema:
-    #           type: string
-    #       - in: query
-    #         name: min_level_required
-    #         required: false
-    #         schema:
-    #           type: number
-    #       - in: query
-    #         name: max_level_required
-    #         required: false
-    #         schema:
-    #           type: number
-    #     responses:
-    #       200:
-    #         description: ""
-    #         content:
-    #           application/json:
-    #             schema:
-    #               type: array
-    #               items:
-    #                 $ref: "#/components/schemas/item"
-    #       500:
-    #         description: Internal Server Error
-    #         content:
-    #           application/json:
-    #             schema:
-    #                 type: object
-    #                 properties:
-    #                   code:
-    #                     type: integer
-    #                   message:
-    #                     type: string
-    #                   error:
-    #                     type: string
+    /account:
+        post:
+            tags:
+                - Accounts
+            description: Account create
+            operationId: postAccount
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                name:
+                                    type: string
+                                nickName:
+                                    type: number
+                                password:
+                                    type: number
+                                priceImbuiment:
+                                    type: Double
+                                active:
+                                    type: Boolean
+                                created_by:
+                                    type: string
+            responses:
+                201:
+                    description: Created
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    id:
+                                        type: string
+                500:
+                    description: Internal Server Error
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    code:
+                                        type: integer
+                                    message:
+                                        type: string
+                                    error:
+                                        type: string
+        # /item:
+        #   post:
+        #     tags:
+        #       - Items
+        #     description: Item create
+        #     operationId: postItem
+        #     requestBody:
+        #       required: true
+        #       content:
+        #         application/json:
+        #           schema:
+        #             type: object
+        #             properties:
+        #               description:
+        #                 type: string
+        #               weight:
+        #                 type: number
+        #               levelRequired:
+        #                 type: number
+        #               vocation:
+        #                 type: number
+        #     responses:
+        #       201:
+        #         description: Created
+        #         content:
+        #           application/json:
+        #             schema:
+        #               type: object
+        #               properties:
+        #                 id:
+        #                   type: number
+        #       500:
+        #         description: Internal Server Error
+        #         content:
+        #           application/json:
+        #             schema:
+        #                 type: object
+        #                 properties:
+        #                   code:
+        #                     type: integer
+        #                   message:
+        #                     type: string
+        #                   error:
+        #                     type: string
+        #   get:
+        #     tags:
+        #       - Items
+        #     description: Item getAll
+        #     operationId: getItems
+        #     parameters:
+        #       - in: query
+        #         name: vocation
+        #         required: false
+        #         schema:
+        #           type: string
+        #       - in: query
+        #         name: min_level_required
+        #         required: false
+        #         schema:
+        #           type: number
+        #       - in: query
+        #         name: max_level_required
+        #         required: false
+        #         schema:
+        #           type: number
+        #     responses:
+        #       200:
+        #         description: ""
+        #         content:
+        #           application/json:
+        #             schema:
+        #               type: array
+        #               items:
+        #                 $ref: "#/components/schemas/item"
+        #       500:
+        #         description: Internal Server Error
+        #         content:
+        #           application/json:
+        #             schema:
+        #                 type: object
+        #                 properties:
+        #                   code:
+        #                     type: integer
+        #                   message:
+        #                     type: string
+        #                   error:
+        #                     type: string
 components:
     schemas:
         # item:
